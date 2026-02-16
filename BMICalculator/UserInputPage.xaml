@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="BMICalculator.UserInputPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="BMI Input">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <Label Text="Enter your info" FontSize="24" />
+
+            <Frame Padding="12">
+                <VerticalStackLayout Spacing="10">
+                    <Label x:Name="WeightLabel" Text="Weight: 90 lbs" FontSize="18" />
+                    <Slider x:Name="WeightSlider"
+                            Minimum="0"
+                            Maximum="300"
+                            Value="90"
+                            ValueChanged="WeightSlider_ValueChanged" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame Padding="12">
+                <VerticalStackLayout Spacing="10">
+                    <Label x:Name="HeightLabel" Text="Height: 50 in" FontSize="18" />
+                    <Slider x:Name="HeightSlider"
+                            Minimum="0"
+                            Maximum="100"
+                            Value="50"
+                            ValueChanged="HeightSlider_ValueChanged" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Select Gender (tap an image)" FontSize="18" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <Frame x:Name="MaleFrame" Grid.Column="0" Padding="10" BorderColor="Gray">
+                    <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                        <Image x:Name="MaleImage" Source="male.png" HeightRequest="120" />
+                        <Label Text="Male" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+
+                <Frame x:Name="FemaleFrame" Grid.Column="1" Padding="10" BorderColor="Gray">
+                    <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                        <Image x:Name="FemaleImage" Source="female.png" HeightRequest="120" />
+                        <Label Text="Female" HorizontalTextAlignment="Center" />
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <Button Text="Go To BMI Result"
+                    Clicked="GoToResult_Clicked" />
+
+            <Label x:Name="StatusLabel" TextColor="Red" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
